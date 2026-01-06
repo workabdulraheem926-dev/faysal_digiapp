@@ -1,0 +1,363 @@
+import 'package:flutter/material.dart';
+import 'widgets/custom_button.dart';
+import 'widgets/transfer_beni.dart';
+
+class Dashboard extends StatelessWidget {
+  const Dashboard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsetsDirectional.only(top: 40),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          //AppBar
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    shape: BoxShape.circle,
+                  ),
+
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.person_outline,
+                        size: 36,
+                        color: const Color(0xFF33ADB8),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                        shape: BoxShape.circle,
+                      ),
+
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.notifications_none_outlined,
+                            size: 34,
+                            color: const Color(0xFF33ADB8),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(width: 8),
+
+                    Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                        shape: BoxShape.circle,
+                      ),
+
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.qr_code,
+                            size: 32,
+                            color: const Color(0xFF33ADB8),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ), //AppBar
+          //AccountCard
+          SizedBox(height: 16),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: const Color.fromARGB(158, 71, 71, 71),
+                  blurRadius: 2,
+
+                  offset: Offset(0, 0.5),
+                ),
+              ],
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(16),
+                topRight: Radius.circular(16),
+              ),
+              gradient: LinearGradient(
+                colors: [
+                  const Color(0xFF33ADB8),
+                  const Color.fromARGB(255, 1, 44, 60),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'DIGITAL CURRENT ACCOUNT PKR',
+                  style: TextStyle(
+                    color: const Color.fromARGB(174, 255, 255, 255),
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: -0.2,
+                  ),
+                ),
+                SizedBox(height: 6),
+                Text(
+                  'ABDUL RAHEEM',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: -0.2,
+                  ),
+                ),
+
+                Row(
+                  children: [
+                    Text(
+                      'PKR 1,790',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 32,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: -0.2,
+                      ),
+                    ),
+                    SizedBox(width: 16),
+                    Icon(
+                      Icons.remove_red_eye_outlined,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                  ],
+                ),
+
+                Row(
+                  children: [
+                    Text(
+                      'PKR**FAYS*********7829',
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                        color: Color.fromARGB(174, 255, 255, 255),
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: -0.2,
+                      ),
+                    ),
+                    SizedBox(width: 12),
+                    Icon(
+                      Icons.copy,
+                      color: Color.fromARGB(174, 255, 255, 255),
+                      size: 20,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ), //AccountCard
+          //ViewStatement
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(vertical: 12),
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: const Color.fromARGB(158, 71, 71, 71),
+                  blurRadius: 2,
+
+                  offset: Offset(0, 0.5),
+                ),
+              ],
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(16),
+                bottomRight: Radius.circular(16),
+              ),
+              color: Colors.white,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.bar_chart_outlined,
+                  size: 32,
+                  color: Color(0xFF33ADB8),
+                ),
+                SizedBox(width: 12),
+                Text(
+                  "View Statement",
+                  style: TextStyle(
+                    color: Color(0xFF33ADB8),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+          ), //ViewStatement
+          SizedBox(height: 2),
+
+          //Transfer/Bills
+
+          //Transfer
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: const Color.fromARGB(158, 71, 71, 71),
+                  blurRadius: 2,
+
+                  offset: Offset(0, 0.5),
+                ),
+              ],
+              borderRadius: BorderRadius.all(Radius.circular(12)),
+              color: Colors.white,
+            ),
+            child: Column(
+              children: [
+                //transfer/bills buttons
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 8),
+                  padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                    color: const Color(0xFFe5eced),
+                  ),
+
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      //Transfer
+                      Container(
+                        padding: EdgeInsets.symmetric(vertical: 12),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF33ADB8),
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Container(
+                          width: 160,
+                          height: 30,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 9,
+                            vertical: 4,
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Transfers',
+                              style: TextStyle(
+                                color: const Color.fromARGB(255, 255, 255, 255),
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18,
+                                letterSpacing: -0.6,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ), //Trans
+                      SizedBox(width: 12),
+
+                      //Bills
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 9,
+                              vertical: 4,
+                            ),
+                            alignment: Alignment.center,
+                            child: const Text(
+                              'Bills',
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18,
+                                letterSpacing: -0.6,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ), //Bills
+                    ],
+                  ),
+                ),
+                SizedBox(height: 16),
+                //FavBenis
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Beni(
+                      name: "Samson",
+                      account: "0345 3556236",
+                      icon: Icons.person_outline,
+                    ),
+                    Beni(
+                      name: "Samson",
+                      account: "0345 3556236",
+                      icon: Icons.person_outline,
+                    ),
+
+                    Beni(
+                      name: "Samson",
+                      account: "0345 3556236",
+                      icon: Icons.person_outline,
+                    ),
+                    Beni(
+                      name: "Samson",
+                      account: "0345 3556236",
+                      icon: Icons.person_outline,
+                    ),
+                  ],
+                ), //FavBenis
+              ],
+            ),
+          ), //Transfer/Bills
+
+          SizedBox(height: 18),
+          //Modules
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+            children: [
+              Btn(text: "Send Money", icon: Icons.currency_exchange_sharp),
+              Btn(text: "Top Up", icon: Icons.phone_android_outlined),
+              Btn(text: "Pay Bills", icon: Icons.receipt),
+            ],
+          ),
+          SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Btn(text: "Raast", icon: Icons.work_outlined),
+              Btn(text: "Payments", icon: Icons.payments_outlined),
+              Btn(text: "Cards", icon: Icons.credit_card_sharp),
+            ],
+          ), //Modules
+        ],
+      ),
+    );
+  }
+}
