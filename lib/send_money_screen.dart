@@ -1,8 +1,8 @@
+import 'package:faysal_digiapp/widgets/cluade_button.dart';
 import 'package:faysal_digiapp/widgets/cluade_button_mine.dart';
 import 'package:faysal_digiapp/widgets/fav_ben_payees.dart';
 import 'package:faysal_digiapp/widgets/fav_beni.dart';
 import 'package:flutter/material.dart';
-import 'package:faysal_digiapp/widgets/cluade_button.dart';
 import 'package:faysal_digiapp/widgets/fav_beni_accounts.dart';
 // import 'Widgets/fav_beni.dart';
 
@@ -153,17 +153,6 @@ class SendMoneyScreen extends StatelessWidget {
                   accountNumber: '3554706000007905',
                 ),
               ],
-            ),
-            CustomButton2(text: 'df', onPressed: (){}),
-
-            CustomButton(
-              text: 'Next',
-              textColor: Colors.black,
-              backgroundColor: Colors.transparent,
-              icon: Icons.search,
-              borderColor: const Color.fromARGB(255, 0, 0, 0), 
-              borderWidth: 2,
-              onPressed: () {},
             ),
 
             SizedBox(height: 24),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomButton2 extends StatelessWidget {
+class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
   final Color backgroundColor;
@@ -10,21 +10,26 @@ class CustomButton2 extends StatelessWidget {
   final double borderWidth;
   final double borderRadius;
   final EdgeInsetsGeometry padding;
+  final double fontSize;
   final double? width;
+  final double? iconSize;
+
   final double? height;
 
-  const CustomButton2({
+  const CustomButton({
     super.key,
     required this.text,
     required this.onPressed,
     this.backgroundColor = const Color(0xFF33ADB8),
 
     this.textColor = const Color.fromARGB(255, 255, 255, 255),
+    this.fontSize = 16,
     this.icon,
+    this.iconSize,
     this.borderColor,
     this.borderRadius = 8.0,
     this.padding = const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-    this.borderWidth = 0,
+    this.borderWidth = 4,
     this.width,
     this.height,
   });
@@ -38,15 +43,33 @@ class CustomButton2 extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor,
+          padding: padding,
+          elevation: 0,
           foregroundColor: textColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
-            side: borderColor != null 
-            ? BorderSide(color: borderColor!, width: borderWidth)
-            : BorderSide.none
+            side: borderColor != null
+                ? BorderSide(color: borderColor!, width: borderWidth)
+                : BorderSide.none,
           ),
         ),
-        child: Text('Next'),
+        child: icon != null
+            ? Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(icon!, size: iconSize,),
+                  SizedBox(width: 12,),
+                  Text(
+                    text,
+                    style: TextStyle(color: textColor, fontSize: fontSize),
+                  ),
+                ],
+              )
+            : Text(
+                text,
+                style: TextStyle(color: textColor, fontSize: fontSize),
+              ),
       ),
     );
   }
