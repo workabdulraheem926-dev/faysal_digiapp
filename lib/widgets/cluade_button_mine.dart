@@ -13,7 +13,6 @@ class CustomButton extends StatelessWidget {
   final double fontSize;
   final double? width;
   final double? iconSize;
-
   final double? height;
 
   const CustomButton({
@@ -21,7 +20,6 @@ class CustomButton extends StatelessWidget {
     required this.text,
     required this.onPressed,
     this.backgroundColor = const Color(0xFF33ADB8),
-
     this.textColor = const Color.fromARGB(255, 255, 255, 255),
     this.fontSize = 16,
     this.icon,
@@ -39,6 +37,7 @@ class CustomButton extends StatelessWidget {
     return SizedBox(
       width: width,
       height: height,
+      
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
@@ -55,11 +54,11 @@ class CustomButton extends StatelessWidget {
         ),
         child: icon != null
             ? Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(icon!, size: iconSize,),
-                  SizedBox(width: 12,),
+                  Icon(icon!, size: iconSize),
+                  SizedBox(width: 8),
                   Text(
                     text,
                     style: TextStyle(color: textColor, fontSize: fontSize),
@@ -67,10 +66,8 @@ class CustomButton extends StatelessWidget {
                 ],
               )
             : Text(
-              textAlign: TextAlign.center,
                 text,
                 style: TextStyle(color: textColor, fontSize: fontSize),
-
               ),
       ),
     );
