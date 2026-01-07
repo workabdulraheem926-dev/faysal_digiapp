@@ -9,7 +9,7 @@ class FromAccounts extends StatelessWidget {
     required this.icon,
     required this.accountNumber,
     required this.accountType,
-    required this.fromToAccountText
+    required this.fromToAccountText,
   });
 
   final String beniName;
@@ -23,79 +23,90 @@ class FromAccounts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-    
-      onPressed: () {},
-      style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
-        elevation: 2,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      ),
-      child: Column(
-        mainAxisAlignment:
-            MainAxisAlignment.center, // Centers content vertically
-        children: [
-          // 1. The Icon Layer
-          Container(
-            width: 85,
-            height: 85,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Color(0xFF33ADB8),
+    return InkWell(
+      onTap: () {},
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 0),
+        child: Column(
+          mainAxisAlignment:
+              MainAxisAlignment.center, // Centers content vertically
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(fromToAccountText),
+                Icon(Icons.keyboard_arrow_down_sharp),
+              ],
             ),
-
-            child: Container(
+            SizedBox(height: 8),
+            // 1. The Icon Layer
+            Container(
+              width: 70,
+              height: 70,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(color: Color.fromARGB(255, 1, 146, 160)),
-                  BoxShadow(
-                    color: Color(0xFF33ADB8),
-                    spreadRadius: -6.0,
-                    blurRadius: 8.0,
-                  ),
-                ],
+                color: Color(0xFF33ADB8),
               ),
-              child: ClipOval(
-                child: Padding(
-                  padding: const EdgeInsets.all(6),
-                  child: Icon(icon, size: iconSize, color: iconColor),
+
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(color: Color.fromARGB(255, 1, 146, 160)),
+                    BoxShadow(
+                      color: Color(0xFF33ADB8),
+                      spreadRadius: -6.0,
+                      blurRadius: 8.0,
+                    ),
+                  ],
+                ),
+                child: ClipOval(
+                  child: Padding(
+                    padding: const EdgeInsets.all(6),
+                    child: Icon(icon, size: iconSize, color: iconColor),
+                  ),
                 ),
               ),
             ),
-          ),
-          SizedBox(height: 8,),
-          Row(children: [
-            Text(fromToAccountText),
-            Icon(Icons.arrow_drop_down_outlined)
-          ],),
-          SizedBox(height: 8,),
-          Text(
-            beniName.toUpperCase(),
-            style: const TextStyle(fontSize: 14, 
-            color: Color(0xFF33ADB8), 
-            letterSpacing: -0.3
+            SizedBox(height: 8),
+
+            SizedBox(height: 4),
+            Text(
+              beniName.toUpperCase(),
+              style: const TextStyle(
+                fontSize: 14,
+                color: Color(0xFF33ADB8),
+                letterSpacing: -0.3,
+              ),
+              overflow: TextOverflow.visible, // Prevents text overflow
+              // Prevents text overflow
             ),
-            overflow: TextOverflow.visible, // Prevents text overflow
-          // Prevents text overflow
-          ),
 
-          const SizedBox(height: 8),
-          Text(
-            accountNumber,
-            style: const TextStyle(fontSize: 14),
-            overflow: TextOverflow.visible, // Prevents text overflow
-          ),
-          const SizedBox(height: 8),
-          Text(
-            accountType,
-            style: const TextStyle(fontSize: 14, color: Color.fromARGB(255, 148, 148, 148)),
-            overflow: TextOverflow.visible, // Prevents text overflow
-          ),
+            const SizedBox(height: 2),
+            SizedBox(
+              width: 110,
+              child: Text(
+                textAlign: TextAlign.center,
+                textDirection: TextDirection.ltr,
 
-        ],
+                accountNumber,
+                style: const TextStyle(fontSize: 12),
+                overflow: TextOverflow.ellipsis,
+                // Prevents text overflow
+              ),
+            ),
+
+            const SizedBox(height: 2),
+            Text(
+              accountType,
+              style: const TextStyle(
+                fontSize: 12,
+                color: Color.fromARGB(255, 148, 148, 148),
+              ),
+              overflow: TextOverflow.visible, // Prevents text overflow
+            ),
+          ],
+        ),
       ),
     );
   }

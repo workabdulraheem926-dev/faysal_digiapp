@@ -42,6 +42,40 @@ class SendMoneyS2 extends StatelessWidget {
           children: [
             SizedBox(height: 16),
 
+            //From/To Selection
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(8)),
+                color: Colors.white,
+              ),
+              child: Row(
+                children: [
+                  FromAccounts(
+                    beniName: "Abdul Raheem",
+                    icon: Icons.person,
+                    accountNumber: '034568844',
+                    iconSize: 40,
+                    iconColor: Colors.white,
+                    accountType: 'Current Account',
+                    fromToAccountText: 'From',
+                  ),
+
+                  Expanded(child: SizedBox()),
+
+                  FromAccounts(
+                    beniName: "Abdul Raheem",
+                    icon: Icons.person,
+                    accountNumber: 'PK10FAYS3554301000007905',
+                    iconSize: 40,
+                    iconColor: Colors.white,
+                    accountType: 'Current Account',
+                    fromToAccountText: 'To',
+                  ),
+                ],
+              ),
+            ),
+SizedBox(height: 16),
             Row(
               //Purpose of payment
               children: [
@@ -195,8 +229,8 @@ class SendMoneyS2 extends StatelessWidget {
                 ),
               ],
             ),
+            
             SizedBox(height: 16),
-
             //Balance
             Row(
               children: [
@@ -268,6 +302,7 @@ class SendMoneyS2 extends StatelessWidget {
               ],
             ),
             SizedBox(height: 16),
+
             //Commens/Purpose of payment
             Row(
               children: [
@@ -301,7 +336,7 @@ class SendMoneyS2 extends StatelessWidget {
               ],
             ),
 
-            SizedBox(height: 16),
+            SizedBox(height: 56),
             //Buttons (Schedule/Next)
             Row(
               children: [
@@ -329,15 +364,7 @@ class SendMoneyS2 extends StatelessWidget {
                 ),
               ],
             ),
-            FromAccounts(
-              beniName: "Abdul Raheem",
-              icon: Icons.person,
-              accountNumber: '034568844',
-              iconSize: 45,
-              iconColor: Colors.white,
-              accountType: 'Current Account' ,
-              fromToAccountText: 'Text',
-            ),
+
             SizedBox(height: 16),
           ],
         ),
