@@ -336,6 +336,7 @@ class SendMoneyS2 extends StatelessWidget {
               iconSize: 45,
               iconColor: Colors.white,
               accountType: 'Current Account' ,
+              fromToAccountText: 'Text',
             ),
             SizedBox(height: 16),
           ],
