@@ -331,9 +331,11 @@ class SendMoneyS2 extends StatelessWidget {
             ),
             FromAccounts(
               beniName: "Abdul Raheem",
-              icon: Icons.import_contacts,
+              icon: Icons.person,
               accountNumber: '034568844',
-              iconSize: 35,
+              iconSize: 45,
+              iconColor: Colors.white,
+              accountType: 'Current Account' ,
             ),
             SizedBox(height: 16),
           ],

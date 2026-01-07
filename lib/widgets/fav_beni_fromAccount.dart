@@ -1,19 +1,33 @@
 import 'package:flutter/material.dart';
 
 class FromAccounts extends StatelessWidget {
-  const FromAccounts({super.key, required this.beniName, this.iconSize, required this.icon, required this.accountNumber});
+  const FromAccounts({
+    super.key,
+    required this.beniName,
+    this.iconSize,
+    this.iconColor,
+    required this.icon,
+    required this.accountNumber,
+    required this.accountType,
+    required this.fromToAccountText
+  });
 
   final String beniName;
-   final String accountNumber;
+  final String accountNumber;
+  final String accountType;
+  final String fromToAccountText;
+
   final IconData? icon; // This is the flexible part!
   final double? iconSize;
+  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+    
       onPressed: () {},
       style: ElevatedButton.styleFrom(
-        fixedSize: const Size(130, 150),
+        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         elevation: 2,
@@ -23,43 +37,64 @@ class FromAccounts extends StatelessWidget {
         mainAxisAlignment:
             MainAxisAlignment.center, // Centers content vertically
         children: [
-          // 1. The Image Layer
+          // 1. The Icon Layer
           Container(
-            width: 65,
-            height: 65,
+            width: 85,
+            height: 85,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              gradient: RadialGradient(
-                colors: [
-                  Colors.transparent,
-                  Colors.black.withValues(alpha: 0.15),
-                  
+              color: Color(0xFF33ADB8),
+            ),
+
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(color: Color.fromARGB(255, 1, 146, 160)),
+                  BoxShadow(
+                    color: Color(0xFF33ADB8),
+                    spreadRadius: -6.0,
+                    blurRadius: 8.0,
+                  ),
                 ],
-                stops: [0.78, 1],
+              ),
+              child: ClipOval(
+                child: Padding(
+                  padding: const EdgeInsets.all(6),
+                  child: Icon(icon, size: iconSize, color: iconColor),
+                ),
               ),
             ),
-          
-              child: ClipOval(child: Padding(
-                padding: const EdgeInsets.all(6), 
-                child: Icon(icon, size: iconSize,),
-              ))
-              ,
-            
+          ),
+          SizedBox(height: 8,),
+          Row(children: [
+            Text(fromToAccountText),
+            Icon(Icons.arrow_drop_down_outlined)
+          ],),
+          SizedBox(height: 8,),
+          Text(
+            beniName.toUpperCase(),
+            style: const TextStyle(fontSize: 14, 
+            color: Color(0xFF33ADB8), 
+            letterSpacing: -0.3
+            ),
+            overflow: TextOverflow.visible, // Prevents text overflow
+          // Prevents text overflow
           ),
 
           const SizedBox(height: 8),
           Text(
-            beniName,
-            style: const TextStyle(fontSize: 10),
-            textAlign: TextAlign.center,
-            overflow: TextOverflow.ellipsis, // Prevents text overflow
-          ),const SizedBox(height: 8),
-          Text(
             accountNumber,
-            style: const TextStyle(fontSize: 10),
-            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 14),
             overflow: TextOverflow.visible, // Prevents text overflow
           ),
+          const SizedBox(height: 8),
+          Text(
+            accountType,
+            style: const TextStyle(fontSize: 14, color: Color.fromARGB(255, 148, 148, 148)),
+            overflow: TextOverflow.visible, // Prevents text overflow
+          ),
+
         ],
       ),
     );
