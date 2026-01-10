@@ -1,6 +1,8 @@
 import 'package:faysal_digiapp/widgets/cluade_button_mine.dart';
-import 'package:faysal_digiapp/widgets/fav_beni_accounts.dart';
 import 'package:faysal_digiapp/widgets/fav_beni_fromAccount.dart';
+import 'package:dotted_border/dotted_border.dart';
+import 'package:faysal_digiapp/widgets/moving_chevron.dart';
+
 import 'package:flutter/Material.dart';
 
 class SendMoneyS2 extends StatelessWidget {
@@ -44,7 +46,7 @@ class SendMoneyS2 extends StatelessWidget {
 
             //From/To Selection
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(8)),
                 color: Colors.white,
@@ -60,8 +62,30 @@ class SendMoneyS2 extends StatelessWidget {
                     accountType: 'Current Account',
                     fromToAccountText: 'From',
                   ),
+                  Spacer(),
 
-                  Expanded(child: SizedBox()),
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      DottedBorder(
+                        color: Colors.black,
+                        strokeWidth: 1,
+                        dashPattern: [4, 8], // [dash length, gap length]
+                        padding: EdgeInsets.zero,
+                        borderType: BorderType.RRect,
+                        radius: Radius.circular(0),
+                        child: SizedBox(height: 190, width: 0),
+                      ),
+                      MovingChevron(
+                        iconSize: 38,
+                        movementRange: 5,
+                        speedMilliseconds: 900,
+                        spacingBetweenIcons: -5,
+                      ),
+                    ],
+                  ),
+
+                  Spacer(),
 
                   FromAccounts(
                     beniName: "Abdul Raheem",
@@ -69,13 +93,13 @@ class SendMoneyS2 extends StatelessWidget {
                     accountNumber: 'PK10FAYS3554301000007905',
                     iconSize: 40,
                     iconColor: Colors.white,
-                    accountType: 'Current Account',
+                    accountType: 'Bank Al Habib',
                     fromToAccountText: 'To',
                   ),
                 ],
               ),
             ),
-SizedBox(height: 16),
+            SizedBox(height: 16),
             Row(
               //Purpose of payment
               children: [
@@ -229,7 +253,7 @@ SizedBox(height: 16),
                 ),
               ],
             ),
-            
+
             SizedBox(height: 16),
             //Balance
             Row(
@@ -336,7 +360,7 @@ SizedBox(height: 16),
               ],
             ),
 
-            SizedBox(height: 56),
+            Expanded(child: SizedBox()),
             //Buttons (Schedule/Next)
             Row(
               children: [
@@ -365,7 +389,8 @@ SizedBox(height: 16),
               ],
             ),
 
-            SizedBox(height: 16),
+
+            SizedBox(height: 36),
           ],
         ),
       ),
