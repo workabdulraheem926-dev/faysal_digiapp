@@ -74,10 +74,12 @@ flutter:
     - assets/images/ubl.png
     - assets/images/plus.png
     - assets/images/faysal_icon.png
+    - assets/images/faysalbankfull.png
 
     
     # - images/a_dot_ham.jpeg
     #Color(0xFF33ADB8)
+    #Color(0xFF)
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
