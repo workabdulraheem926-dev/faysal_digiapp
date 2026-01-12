@@ -15,12 +15,12 @@ class Beni extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(18)),
+            borderRadius: BorderRadius.all(Radius.circular(12)),
             boxShadow: [
               BoxShadow(
-                blurRadius: 1,
-                spreadRadius: 0.4,
-                offset: Offset(0, 0.3),
+                blurRadius: 5,
+                spreadRadius: -.9,
+                offset: Offset(0, 4),
                 color: const Color.fromARGB(66, 41, 41, 41),
               ),
             ],
@@ -30,8 +30,8 @@ class Beni extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                size: 45,
-                color: const Color.fromARGB(103, 100, 100, 100),
+                size: 30,
+                color: const Color.fromARGB(103, 65, 65, 65),
               ),
             ],
           ),
@@ -42,14 +42,13 @@ class Beni extends StatelessWidget {
           style: TextStyle(
             color: Colors.black,
             fontSize: 12,
-            fontWeight: FontWeight.bold,
           ),
         ),
         Text(
           account,
           style: TextStyle(
-            color: const Color.fromARGB(255, 51, 51, 51),
-            fontSize: 10,
+            color: const Color.fromARGB(255, 73, 73, 73),
+            fontSize: 9,
           ),
         ),
       ],

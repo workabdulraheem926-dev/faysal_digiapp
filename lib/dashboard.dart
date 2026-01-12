@@ -1,6 +1,5 @@
-import 'package:faysal_digiapp/SendMoney/Screen2.dart';
 import 'package:faysal_digiapp/SendMoney/Screen3.dart';
-import 'package:faysal_digiapp/SendMoney/mainScreen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'widgets/custom_button.dart';
 import 'widgets/transfer_beni.dart';
@@ -23,9 +22,18 @@ class Dashboard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    width: 50,
-                    height: 50,
+                    width: 40,
+                    height: 40,
                     decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color.fromARGB(158, 139, 139, 139),
+                          blurRadius: .5,
+
+                          offset: Offset(0, 1),
+                        ),
+                      ],
+
                       color: const Color.fromARGB(255, 255, 255, 255),
                       shape: BoxShape.circle,
                     ),
@@ -35,7 +43,7 @@ class Dashboard extends StatelessWidget {
                       children: [
                         Icon(
                           Icons.person_outline,
-                          size: 36,
+                          size: 26,
                           color: const Color(0xFF33ADB8),
                         ),
                       ],
@@ -44,19 +52,28 @@ class Dashboard extends StatelessWidget {
                   Row(
                     children: [
                       Container(
-                        width: 50,
-                        height: 50,
+                        width: 40,
+                        height: 40,
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 255, 255, 255),
-                          shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color.fromARGB(158, 139, 139, 139),
+                          blurRadius: .5,
+
+                          offset: Offset(0, 1),
                         ),
+                      ],
+
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      shape: BoxShape.circle,
+                    ),
 
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
                               Icons.notifications_none_outlined,
-                              size: 34,
+                              size: 26,
                               color: const Color(0xFF33ADB8),
                             ),
                           ],
@@ -65,19 +82,28 @@ class Dashboard extends StatelessWidget {
                       SizedBox(width: 8),
 
                       Container(
-                        width: 50,
-                        height: 50,
+                        width: 40,
+                        height: 40,
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 255, 255, 255),
-                          shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color.fromARGB(158, 139, 139, 139),
+                          blurRadius: .5,
+
+                          offset: Offset(0, 1),
                         ),
+                      ],
+
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      shape: BoxShape.circle,
+                    ),
 
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
                               Icons.qr_code,
-                              size: 32,
+                              size: 26,
                               color: const Color(0xFF33ADB8),
                             ),
                           ],
@@ -92,14 +118,14 @@ class Dashboard extends StatelessWidget {
             SizedBox(height: 16),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 16),
-              padding: EdgeInsets.all(24),
+              padding: EdgeInsets.only(top: 20, bottom: 12, left: 20),
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: const Color.fromARGB(158, 71, 71, 71),
+                    color: const Color.fromARGB(158, 112, 112, 112),
                     blurRadius: 2,
 
-                    offset: Offset(0, 0.5),
+                    offset: Offset(0, .5),
                   ),
                 ],
                 borderRadius: BorderRadius.only(
@@ -188,10 +214,10 @@ class Dashboard extends StatelessWidget {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: const Color.fromARGB(158, 71, 71, 71),
+                    color: const Color.fromARGB(158, 112, 112, 112),
                     blurRadius: 2,
 
-                    offset: Offset(0, 0.5),
+                    offset: Offset(0, .5),
                   ),
                 ],
                 borderRadius: BorderRadius.only(
@@ -220,7 +246,7 @@ class Dashboard extends StatelessWidget {
                 ],
               ),
             ), //ViewStatement
-            SizedBox(height: 16),
+            SizedBox(height: 12),
 
             //Transfer/Bills
 
@@ -231,10 +257,10 @@ class Dashboard extends StatelessWidget {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: const Color.fromARGB(158, 71, 71, 71),
+                    color: const Color.fromARGB(158, 112, 112, 112),
                     blurRadius: 2,
 
-                    offset: Offset(0, 0.5),
+                    offset: Offset(0, .5),
                   ),
                 ],
                 borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -245,7 +271,7 @@ class Dashboard extends StatelessWidget {
                   //transfer/bills buttons
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 8),
-                    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+                    padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                       color: const Color(0xFFe5eced),
@@ -256,34 +282,17 @@ class Dashboard extends StatelessWidget {
                       children: [
                         //Transfer
                         Container(
-                          padding: EdgeInsets.symmetric(vertical: 12),
+                          padding: EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 40,
+                          ),
                           decoration: BoxDecoration(
                             color: const Color(0xFF33ADB8),
-                            borderRadius: BorderRadius.circular(14),
+                            borderRadius: BorderRadius.circular(10),
                           ),
-                          child: Container(
-                            width: 160,
-                            height: 30,
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 9,
-                              vertical: 4,
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Transfers',
-                                style: TextStyle(
-                                  color: const Color.fromARGB(
-                                    255,
-                                    255,
-                                    255,
-                                    255,
-                                  ),
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 18,
-                                  letterSpacing: -0.6,
-                                ),
-                              ),
-                            ),
+                          child: Text(
+                            'Transfers',
+                            style: TextStyle(color: Colors.white, fontSize: 14),
                           ),
                         ), //Trans
                         SizedBox(width: 12),
@@ -302,9 +311,7 @@ class Dashboard extends StatelessWidget {
                                 'Bills',
                                 style: TextStyle(
                                   color: Color.fromARGB(255, 0, 0, 0),
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 18,
-                                  letterSpacing: -0.6,
+                                  fontSize: 14,
                                 ),
                               ),
                             ),
@@ -321,23 +328,23 @@ class Dashboard extends StatelessWidget {
                       Beni(
                         name: "Samson",
                         account: "0345 3556236",
-                        icon: Icons.person_outline,
+                        icon: CupertinoIcons.person_solid,
                       ),
                       Beni(
                         name: "Samson",
                         account: "0345 3556236",
-                        icon: Icons.person_outline,
+                        icon: CupertinoIcons.person_solid,
                       ),
 
                       Beni(
                         name: "Samson",
                         account: "0345 3556236",
-                        icon: Icons.person_outline,
+                        icon: CupertinoIcons.person_solid,
                       ),
                       Beni(
                         name: "Samson",
                         account: "0345 3556236",
-                        icon: Icons.person_outline,
+                        icon: CupertinoIcons.person_solid,
                       ),
                     ],
                   ), //FavBenis

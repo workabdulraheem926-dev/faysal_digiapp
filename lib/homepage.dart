@@ -39,13 +39,13 @@ class _HomepageState extends State<Homepage> {
                           height: 150,
                         ),
                         Icon(
-                          Icons.help_outline_sharp,
-                          size: 46,
+                          Icons.help_outline_rounded,
+                          size: 36,
                           color: Colors.white,
                         ),
                       ],
                     ),
-                    const SizedBox(height: 310),
+                     Expanded(child: SizedBox()),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
       
@@ -64,8 +64,8 @@ class _HomepageState extends State<Homepage> {
                                   Navigator.push(context, MaterialPageRoute(builder: (context) =>Dashboard()));
                                 },
                                 child: Container(
-                                  height: 85,
-                                  width: 160,
+                                  height: 75,
+                                  width: 140,
                                   padding: const EdgeInsets.symmetric(
                                     vertical: 10,
                                     horizontal: 30,
@@ -80,7 +80,6 @@ class _HomepageState extends State<Homepage> {
                                       style: TextStyle(
                                         fontSize: 28,
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -93,7 +92,7 @@ class _HomepageState extends State<Homepage> {
                               borderRadius: BorderRadius.circular(18),
       
                               child: Container(
-                                height: 85,
+                                height: 75,
                                 padding: const EdgeInsets.symmetric(
                                   vertical: 10,
                                   horizontal: 22,
@@ -104,7 +103,7 @@ class _HomepageState extends State<Homepage> {
                                 ),
                                 child: Icon(
                                   Icons.lock,
-                                  size: 44,
+                                  size: 34,
                                   color: Colors.white,
                                 ),
                               ),
@@ -114,7 +113,7 @@ class _HomepageState extends State<Homepage> {
                               elevation: 4,
                               borderRadius: BorderRadius.circular(18),
                               child: Container(
-                                height: 85,
+                                height: 75,
                                 padding: const EdgeInsets.symmetric(
                                   vertical: 10,
                                   horizontal: 22,
@@ -125,7 +124,7 @@ class _HomepageState extends State<Homepage> {
                                 ),
                                 child: Icon(
                                   Icons.fingerprint,
-                                  size: 44,
+                                  size: 34,
                                   color: Colors.white,
                                 ),
                               ),
@@ -154,8 +153,7 @@ class _HomepageState extends State<Homepage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             //OpenAccount
-                            Container(
-                              child: Column(
+                             Column(
                                 children: [
                                   Material(
                                     elevation: 2,
@@ -195,15 +193,14 @@ class _HomepageState extends State<Homepage> {
                                       height: 1.3,
                                       fontSize: 16,
                                       color: Colors.white,
-                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
+                            
                             //DigiMall
-                            Container(
-                              child: Column(
+                            
+                             Column(
                                 children: [
                                   Material(
                                     elevation: 2,
@@ -243,15 +240,14 @@ class _HomepageState extends State<Homepage> {
                                       height: 1.3,
                                       fontSize: 16,
                                       color: Colors.white,
-                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
+                            
                             //CardDeals
-                            Container(
-                              child: Column(
+                            
+                             Column(
                                 children: [
                                   Material(
                                     elevation: 2,
@@ -291,12 +287,10 @@ class _HomepageState extends State<Homepage> {
                                       height: 1.3,
                                       fontSize: 16,
                                       color: Colors.white,
-                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
       
                             //WhatsAppBanking
                             Container(
@@ -341,7 +335,6 @@ class _HomepageState extends State<Homepage> {
                                       fontSize: 16,
                                       height: 1.3,
                                       color: Colors.white,
-                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ],
