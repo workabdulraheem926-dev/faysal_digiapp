@@ -15,10 +15,17 @@ class SendMoneyS2 extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
 
+        automaticallyImplyLeading: false,
+
         elevation: 0,
         title: Row(
           children: [
-            Icon(Icons.arrow_back_ios, size: 22),
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Icon(Icons.arrow_back_ios, size: 18),
+            ),
             Text(
               'Send Money',
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),

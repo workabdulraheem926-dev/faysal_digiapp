@@ -12,10 +12,11 @@ class SendMoneyS4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 238, 238, 238),
+      backgroundColor: const Color.fromRGBO(238, 238, 238, 1),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
 
+        automaticallyImplyLeading: false,
         elevation: 0,
         title: Row(
           children: [

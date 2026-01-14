@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 
 class Btn extends StatelessWidget {
   const Btn({super.key, required this.text, this.icon, this.onTap});
@@ -32,7 +30,7 @@ class Btn extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            FaIcon(icon, size: 48, color: const Color(0xFF33ADB8),),
+            Icon(icon, size: 48, color: const Color(0xFF33ADB8)),
             SizedBox(height: 8),
             Text(text, style: TextStyle(fontSize: 12)),
           ],

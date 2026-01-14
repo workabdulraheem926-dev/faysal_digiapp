@@ -1,3 +1,5 @@
+import 'package:faysal_digiapp/SendMoney/Screen2.dart';
+import 'package:faysal_digiapp/SendMoney/Screen3.dart';
 import 'package:faysal_digiapp/widgets/fav_ben_payees.dart';
 import 'package:faysal_digiapp/widgets/fav_beni.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +14,8 @@ class SendMoneyScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+
+        automaticallyImplyLeading: false,
         elevation: 0,
         titleSpacing: 0,
         title: Container(
@@ -21,7 +25,12 @@ class SendMoneyScreen extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Icon(Icons.arrow_back_ios_new_outlined, size: 18),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(Icons.arrow_back_ios_new_outlined, size: 18),
+                  ),
                   SizedBox(width: 6),
                   Text(
                     'Send Money',
@@ -91,12 +100,9 @@ class SendMoneyScreen extends StatelessWidget {
                 children:
                     [
                           FavBeni(
-                            beniName: 'Add\nfavourites',
-                            image: AssetImage('assets/images/plus.png'),
-                          ),
-                          FavBeni(
                             beniName: 'Bank AL Habib',
                             image: AssetImage('assets/images/bahl.png'),
+                            onTap:(){},
                           ),
                           FavBeni(
                             beniName: 'Meezan Bank',

@@ -1,5 +1,13 @@
+import 'package:faysal_digiapp/SendMoney/Screen2.dart';
 import 'package:faysal_digiapp/SendMoney/Screen3.dart';
+import 'package:faysal_digiapp/SendMoney/mainScreen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:iconsax/iconsax.dart';
+
+
+import 'package:ionicons/ionicons.dart';
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'widgets/custom_button.dart';
@@ -361,20 +369,22 @@ class Dashboard extends StatelessWidget {
               children: [
                 Btn(
                   text: "Send Money",
-                  icon: FontAwesomeIcons.arrowDown,
+                  icon: Iconsax.money_change,
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SendMoneyS3()),
+                      MaterialPageRoute(builder: (context) => SendMoneyScreen()),
                     );
                   },
                 ),
                 Btn(
                   text: "Top Up",
                   onTap: () {},
-                  icon: FontAwesomeIcons.android,
+                  icon: Iconsax.mobile,
                 ),
-                Btn(text: "Pay Bills", icon: Icons.receipt, onTap: () {}),
+                Btn(text: "Pay Bills", 
+                  icon: Iconsax.wallet_2, 
+                  onTap: () {}),
               ],
             ),
             SizedBox(height: 16),
@@ -383,17 +393,17 @@ class Dashboard extends StatelessWidget {
               children: [
                 Btn(
                   text: "Raast",
-                  icon: FontAwesomeIcons.arrowDown,
+                  icon: Iconsax.bank,
                   onTap: () {},
                 ),
                 Btn(
                   text: "Payments",
-                  icon: FontAwesomeIcons.arrowDown,
+                  icon: Iconsax.money_tick,
                   onTap: () {},
                 ),
                 Btn(
                   text: "Cards",
-                  icon: FontAwesomeIcons.arrowDown,
+                  icon: Iconsax.card,
                   onTap: () {},
                 ),
               ],

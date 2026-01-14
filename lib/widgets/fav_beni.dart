@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
 class FavBeni extends StatelessWidget {
-  const FavBeni({super.key, required this.beniName, required this.image});
+  const FavBeni({super.key, required this.beniName,this.onTap, required this.image});
 
   final String beniName;
-  final ImageProvider image; // This is the flexible part!
+  final ImageProvider image; 
+  final VoidCallback? onTap; 
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onTap,
       style: ElevatedButton.styleFrom(
         fixedSize: const Size(130, 130),
         backgroundColor: Colors.white,
