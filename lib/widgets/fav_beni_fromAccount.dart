@@ -6,6 +6,8 @@ class FromAccounts extends StatelessWidget {
     required this.beniName,
     this.iconSize,
     this.iconColor,
+    this.fontWeight,
+
     required this.icon,
     required this.accountNumber,
     required this.accountType,
@@ -16,6 +18,7 @@ class FromAccounts extends StatelessWidget {
   final String accountNumber;
   final String accountType;
   final String fromToAccountText;
+  final FontWeight? fontWeight;
 
   final IconData? icon; // This is the flexible part!
   final double? iconSize;
@@ -73,8 +76,9 @@ class FromAccounts extends StatelessWidget {
             SizedBox(height: 4),
             Text(
               beniName.toUpperCase(),
-              style: const TextStyle(
-                fontSize: 14,
+              style:  TextStyle(
+                fontWeight: fontWeight,
+                
                 color: Color(0xFF33ADB8),
                 letterSpacing: -0.3,
               ),
