@@ -1,4 +1,5 @@
 import 'package:faysal_digiapp/SendMoney/Screen3.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'widgets/custom_button.dart';
@@ -55,18 +56,18 @@ class Dashboard extends StatelessWidget {
                         width: 40,
                         height: 40,
                         decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color.fromARGB(158, 139, 139, 139),
-                          blurRadius: .5,
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color.fromARGB(158, 139, 139, 139),
+                              blurRadius: .5,
 
-                          offset: Offset(0, 1),
+                              offset: Offset(0, 1),
+                            ),
+                          ],
+
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          shape: BoxShape.circle,
                         ),
-                      ],
-
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      shape: BoxShape.circle,
-                    ),
 
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -85,18 +86,18 @@ class Dashboard extends StatelessWidget {
                         width: 40,
                         height: 40,
                         decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color.fromARGB(158, 139, 139, 139),
-                          blurRadius: .5,
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color.fromARGB(158, 139, 139, 139),
+                              blurRadius: .5,
 
-                          offset: Offset(0, 1),
+                              offset: Offset(0, 1),
+                            ),
+                          ],
+
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          shape: BoxShape.circle,
                         ),
-                      ],
-
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      shape: BoxShape.circle,
-                    ),
 
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -253,7 +254,7 @@ class Dashboard extends StatelessWidget {
             //Transfer
             Container(
               margin: EdgeInsets.symmetric(horizontal: 16),
-              padding: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+              padding: EdgeInsets.symmetric(vertical: 22, horizontal: 8),
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
@@ -320,7 +321,7 @@ class Dashboard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 16),
+                  SizedBox(height: 22),
                   //FavBenis
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -360,7 +361,7 @@ class Dashboard extends StatelessWidget {
               children: [
                 Btn(
                   text: "Send Money",
-                  icon: Icons.currency_exchange_sharp,
+                  icon: FontAwesomeIcons.arrowDown,
                   onTap: () {
                     Navigator.push(
                       context,
@@ -370,8 +371,8 @@ class Dashboard extends StatelessWidget {
                 ),
                 Btn(
                   text: "Top Up",
-                  icon: Icons.phone_android_outlined,
                   onTap: () {},
+                  icon: FontAwesomeIcons.android,
                 ),
                 Btn(text: "Pay Bills", icon: Icons.receipt, onTap: () {}),
               ],
@@ -380,13 +381,21 @@ class Dashboard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Btn(text: "Raast", icon: Icons.work_outlined, onTap: () {}),
                 Btn(
-                  text: "Payments",
-                  icon: Icons.payments_outlined,
+                  text: "Raast",
+                  icon: FontAwesomeIcons.arrowDown,
                   onTap: () {},
                 ),
-                Btn(text: "Cards", icon: Icons.credit_card_sharp, onTap: () {}),
+                Btn(
+                  text: "Payments",
+                  icon: FontAwesomeIcons.arrowDown,
+                  onTap: () {},
+                ),
+                Btn(
+                  text: "Cards",
+                  icon: FontAwesomeIcons.arrowDown,
+                  onTap: () {},
+                ),
               ],
             ), //Modules
           ],
