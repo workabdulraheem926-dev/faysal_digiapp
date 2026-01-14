@@ -361,7 +361,7 @@ class Dashboard extends StatelessWidget {
               ),
             ), //Transfer/Bills
 
-            SizedBox(height: 18),
+            SizedBox(height: 12),
             //Modules
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -387,7 +387,7 @@ class Dashboard extends StatelessWidget {
                   onTap: () {}),
               ],
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [

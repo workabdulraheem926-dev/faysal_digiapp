@@ -18,8 +18,8 @@ class Btn extends StatelessWidget {
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
           // fixedSize: Size(25, 25),
-          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 18),
-          fixedSize: Size(110, 110),
+          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+          fixedSize: Size(100, 100),
           backgroundColor: const Color.fromARGB(255, 255, 255, 255),
           foregroundColor: const Color.fromARGB(255, 0, 0, 0),
           shape: RoundedRectangleBorder(
@@ -30,7 +30,7 @@ class Btn extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, size: 48, color: const Color(0xFF33ADB8)),
+            Icon(icon, size: 40, color: const Color(0xFF33ADB8)),
             SizedBox(height: 8),
             Text(text, style: TextStyle(fontSize: 12)),
           ],
