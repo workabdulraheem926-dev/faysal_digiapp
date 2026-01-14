@@ -14,22 +14,33 @@ class SendMoneyS3 extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 238, 238, 238),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-
+        automaticallyImplyLeading: false,
         elevation: 0,
         title: Row(
           children: [
-            Icon(Icons.arrow_back_ios, size: 22),
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Icon(Icons.arrow_back_ios, size: 18),
+            ),
             Text(
               'Send Money',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
             Expanded(child: SizedBox()),
             Container(
               padding: EdgeInsets.all(6),
-
               decoration: BoxDecoration(
-                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color.fromARGB(158, 139, 139, 139),
+                    blurRadius: .5,
+                    offset: Offset(0, 1),
+                  ),
+                ],
                 color: const Color.fromARGB(255, 255, 255, 255),
+                shape: BoxShape.circle,
               ),
               child: Icon(Icons.home, color: const Color(0xFF33ADB8)),
             ),
@@ -119,6 +130,8 @@ class SendMoneyS3 extends StatelessWidget {
                     iconColor: Colors.white,
                     accountType: 'Current Account',
                     fromToAccountText: 'From',
+                    
+                    fontWeight: FontWeight.w500,
                   ),
                   Spacer(),
 
@@ -149,6 +162,7 @@ class SendMoneyS3 extends StatelessWidget {
                     beniName: "Abdul Raheem",
                     icon: Icons.person,
                     accountNumber: 'PK10FAYS3554301000007905',
+                    fontWeight: FontWeight.w500,
                     iconSize: 40,
                     iconColor: Colors.white,
                     accountType: 'Bank Al Habib',
@@ -169,7 +183,6 @@ class SendMoneyS3 extends StatelessWidget {
                     fontSize: 16,
                     color: const Color.fromARGB(255, 163, 163, 163),
                     letterSpacing: -1,
-                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 SizedBox(width: 4),
@@ -206,7 +219,7 @@ class SendMoneyS3 extends StatelessWidget {
                   style: TextStyle(
                     color: Color(0xFF33ADB8),
                     fontSize: 18,
-                    letterSpacing: -0.5,
+                    letterSpacing: -0.1,
                   ),
                 ),
               ),

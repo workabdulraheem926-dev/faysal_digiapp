@@ -24,13 +24,22 @@ class SendMoneyS2 extends StatelessWidget {
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
             ),
             Expanded(child: SizedBox()),
-            Container(
+            Container( 
               padding: EdgeInsets.all(6),
 
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: const Color.fromARGB(255, 255, 255, 255),
-              ),
+             decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color.fromARGB(158, 139, 139, 139),
+                          blurRadius: .5,
+
+                          offset: Offset(0, 1),
+                        ),
+                      ],
+
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      shape: BoxShape.circle,
+                    ),
               child: Icon(Icons.home, color: const Color(0xFF33ADB8)),
             ),
           ],

@@ -22,7 +22,7 @@ class Dashboard extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
+                  Container( 
                     width: 40,
                     height: 40,
                     decoration: BoxDecoration(
