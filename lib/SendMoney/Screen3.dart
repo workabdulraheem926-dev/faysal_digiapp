@@ -1,3 +1,5 @@
+import 'package:faysal_digiapp/SendMoney/Screen4.dart';
+import 'package:faysal_digiapp/dashboard.dart';
 import 'package:faysal_digiapp/widgets/fav_beni_fromAccount.dart';
 import 'package:flutter_swipe_button/flutter_swipe_button.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -29,20 +31,28 @@ class SendMoneyS3 extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
             Expanded(child: SizedBox()),
-            Container(
-              padding: EdgeInsets.all(6),
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color.fromARGB(158, 139, 139, 139),
-                    blurRadius: .5,
-                    offset: Offset(0, 1),
-                  ),
-                ],
-                color: const Color.fromARGB(255, 255, 255, 255),
-                shape: BoxShape.circle,
+            GestureDetector(
+              onTap: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Dashboard()),
+    );
+  },
+              child: Container(
+                padding: EdgeInsets.all(6),
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color.fromARGB(158, 139, 139, 139),
+                      blurRadius: .5,
+                      offset: Offset(0, 1),
+                    ),
+                  ],
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(Icons.home, color: const Color(0xFF33ADB8)),
               ),
-              child: Icon(Icons.home, color: const Color(0xFF33ADB8)),
             ),
           ],
         ),
@@ -223,7 +233,14 @@ class SendMoneyS3 extends StatelessWidget {
                   ),
                 ),
               ),
-              onSwipe: () {},
+              onSwipe: () {
+                Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SendMoneyS4(),
+                                ),
+                              );
+              },
             ),
 
             SizedBox(height: 36),

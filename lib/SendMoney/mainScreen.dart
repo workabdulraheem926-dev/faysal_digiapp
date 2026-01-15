@@ -1,10 +1,9 @@
 import 'package:faysal_digiapp/SendMoney/Screen2.dart';
-import 'package:faysal_digiapp/SendMoney/Screen3.dart';
+import 'package:faysal_digiapp/dashboard.dart';
 import 'package:faysal_digiapp/widgets/fav_ben_payees.dart';
 import 'package:faysal_digiapp/widgets/fav_beni.dart';
 import 'package:flutter/material.dart';
 import 'package:faysal_digiapp/widgets/fav_beni_accounts.dart';
-// import 'Widgets/fav_beni.dart';
 
 class SendMoneyScreen extends StatelessWidget {
   const SendMoneyScreen({super.key});
@@ -41,33 +40,67 @@ class SendMoneyScreen extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    width: 50,
-                    height: 50,
+                    width: 40,
+                    height: 40,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color.fromARGB(158, 139, 139, 139),
+                          blurRadius: .5,
+
+                          offset: Offset(0, 1),
+                        ),
+                      ],
+
+                      color: const Color.fromARGB(255, 255, 255, 255),
                       shape: BoxShape.circle,
                     ),
-                    child: Center(
-                      child: Icon(
-                        Icons.info_outlined,
-                        size: 32,
-                        color: Color(0xFF33ADB8),
-                      ),
+
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.help_outline,
+                          size: 26,
+                          color: const Color(0xFF33ADB8),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(width: 8),
-                  Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.home_outlined,
-                        size: 32,
-                        color: Color(0xFF33ADB8),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Dashboard()),
+                      );
+                    },
+                    child: Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color.fromARGB(158, 139, 139, 139),
+                            blurRadius: .5,
+
+                            offset: Offset(0, 1),
+                          ),
+                        ],
+
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                        shape: BoxShape.circle,
+                      ),
+
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.home,
+                            size: 26,
+                            color: const Color(0xFF33ADB8),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -100,25 +133,41 @@ class SendMoneyScreen extends StatelessWidget {
                 children:
                     [
                           FavBeni(
+                            beniName: 'Add Favourite',
+                            image: AssetImage('assets/images/plus.png'),
+                            onTap: () {},
+                          ),
+                          FavBeni(
                             beniName: 'Bank AL Habib',
                             image: AssetImage('assets/images/bahl.png'),
-                            onTap:(){},
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SendMoneyS2(),
+                                ),
+                              );
+                            },
                           ),
                           FavBeni(
                             beniName: 'Meezan Bank',
                             image: AssetImage('assets/images/meezan.png'),
+                            onTap: () {},
                           ),
                           FavBeni(
                             beniName: 'Habib Bank Limited',
                             image: AssetImage('assets/images/hbl.png'),
+                            onTap: () {},
                           ),
                           FavBeni(
                             beniName: 'United Bank Limited',
                             image: AssetImage('assets/images/ubl.png'),
+                            onTap: () {},
                           ),
                           FavBeni(
                             beniName: 'Allied Bank Limited',
                             image: AssetImage('assets/images/allied.png'),
+                            onTap: () {},
                           ),
                         ]
                         .expand(
@@ -198,21 +247,32 @@ class SendMoneyScreen extends StatelessWidget {
                               beniAccount: 'PK10BAHL3554301000007905',
                               beniBank: 'Bank AL Habib',
                               image: AssetImage('assets/images/bahl.png'),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => SendMoneyS2(),
+                                  ),
+                                );
+                              },
                             ),
                             MyPayee(
                               beniAccount: '0341 2829384',
                               beniBank: 'EasyPaisa Bank',
                               image: AssetImage('assets/images/easypaisa.png'),
+                              onTap: () {},
                             ),
                             MyPayee(
                               beniAccount: 'PK10ALD3554301000007905',
                               beniBank: 'Allied Bank Limited',
                               image: AssetImage('assets/images/allied.png'),
+                              onTap: () {},
                             ),
                             MyPayee(
                               beniAccount: 'PK10MZN3554301000007905',
                               beniBank: 'Meezan Bank Limited',
                               image: AssetImage('assets/images/meezan.png'),
+                              onTap: () {},
                             ),
                             MyPayee(
                               beniAccount: 'PK10FAYS3554301000007905',
@@ -220,6 +280,7 @@ class SendMoneyScreen extends StatelessWidget {
                               image: AssetImage(
                                 'assets/images/faysal_logo.png',
                               ),
+                              onTap: () {},
                             ),
                           ]
                           .expand(

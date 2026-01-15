@@ -1,5 +1,6 @@
 import 'package:faysal_digiapp/dashboard.dart';
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -9,354 +10,396 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  late VideoPlayerController _controller;
+  bool _isVideoInitialized = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeVideo();
+  }
+
+  Future<void> _initializeVideo() async {
+    // Use AssetVideoPlayerController for local video
+    _controller = VideoPlayerController.asset('assets/videos/video.mp4')
+      ..initialize().then((_) {
+        setState(() {
+          _isVideoInitialized = true;
+        });
+        _controller.play();
+        _controller.setLooping(true);
+        _controller.setVolume(0); // Mute the video
+      }).catchError((error) {
+      });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: const Color.fromARGB(255, 215, 215, 215),
       body: Stack(
-            children: [
-              Positioned.fill(
-                child: Opacity(
-                  opacity: 0.8,
-                  child: Image.asset(
-                    'assets/images/headoffice.png',
-                    fit: BoxFit.cover,
-                  ),
+        children: [
+          // Video Background
+          if (_isVideoInitialized)
+            Positioned.fill(
+              child: FittedBox(
+                fit: BoxFit.cover,
+                child: SizedBox(
+                  width: _controller.value.size.width,
+                  height: _controller.value.size.height,
+                  child: VideoPlayer(_controller),
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.only(top: 50, left: 16, right: 18),
-                child: Column(
+            )
+          else
+            // Fallback image while video loads
+            Positioned.fill(
+              child: Opacity(
+                opacity: 0.8,
+                child: Image.asset(
+                  'assets/images/headoffice.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          
+          // Dark overlay for better text visibility
+          Positioned.fill(
+            child: Container(
+              color: Colors.black.withOpacity(0.1),
+            ),
+          ),
+          
+          // Main Content
+          Container(
+            margin: const EdgeInsets.only(top: 50, left: 16, right: 18),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      'assets/images/faysal_logo.png',
+                      width: 150,
+                      height: 150,
+                    ),
+                    Icon(
+                      Icons.help_outline_rounded,
+                      size: 36,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
+                Expanded(child: SizedBox()),
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset(
-                          'assets/images/faysal_logo.png',
-                          width: 150,
-                          height: 150,
+                        //Login Button
+                        Material(
+                          elevation: 4,
+                          borderRadius: BorderRadius.circular(12),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Dashboard(),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              height: 75,
+                              width: 140,
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 10,
+                                horizontal: 30,
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: const Color(0xFF33ADB8),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Login',
+                                  style: TextStyle(
+                                    fontSize: 28,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
-                        Icon(
-                          Icons.help_outline_rounded,
-                          size: 36,
-                          color: Colors.white,
+                        //Pin button
+                        Material(
+                          elevation: 4,
+                          borderRadius: BorderRadius.circular(18),
+                          child: Container(
+                            height: 75,
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 10,
+                              horizontal: 22,
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(18),
+                              color: const Color.fromARGB(255, 101, 101, 101),
+                            ),
+                            child: Icon(
+                              Icons.lock,
+                              size: 34,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        //Finger button
+                        Material(
+                          elevation: 4,
+                          borderRadius: BorderRadius.circular(18),
+                          child: Container(
+                            height: 75,
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 10,
+                              horizontal: 22,
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(18),
+                              color: const Color.fromARGB(255, 101, 101, 101),
+                            ),
+                            child: Icon(
+                              Icons.fingerprint,
+                              size: 34,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ],
                     ),
-                     Expanded(child: SizedBox()),
-                    Column(
+                    SizedBox(height: 20),
+                    Text(
+                      "Register for Digital Banking",
+                      style: TextStyle(
+                        wordSpacing: -1,
+                        fontSize: 18,
+                        color: Colors.white,
+                        decoration: TextDecoration.underline,
+                        decorationColor: const Color.fromARGB(
+                          255,
+                          255,
+                          255,
+                          255,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
-      
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        //OpenAccount
+                        Column(
                           children: [
-                            //Login Button
                             Material(
-                              elevation: 4,
-                              borderRadius: BorderRadius.circular(12),
-                              child: InkWell(
-                                onTap: () {
-      
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) =>Dashboard()));
-                                },
-                                child: Container(
-                                  height: 75,
-                                  width: 140,
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 10,
-                                    horizontal: 30,
+                              elevation: 2,
+                              borderRadius: BorderRadius.circular(18),
+                              child: Container(
+                                height: 75,
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 10,
+                                  horizontal: 18,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(18),
+                                  color: const Color.fromARGB(
+                                    255,
+                                    101,
+                                    101,
+                                    101,
                                   ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(
                                     color: const Color(0xFF33ADB8),
+                                    width: 2,
                                   ),
-                                  child: Center(
-                                    child: Text(
-                                      'Login',
-                                      style: TextStyle(
-                                        fontSize: 28,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            //Pin button
-                            Material(
-                              elevation: 4,
-                              borderRadius: BorderRadius.circular(18),
-      
-                              child: Container(
-                                height: 75,
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 10,
-                                  horizontal: 22,
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(18),
-                                  color: const Color.fromARGB(255, 101, 101, 101),
                                 ),
                                 child: Icon(
-                                  Icons.lock,
-                                  size: 34,
+                                  Icons.account_balance_outlined,
+                                  size: 32,
                                   color: Colors.white,
                                 ),
                               ),
                             ),
-                            //Finger button
-                            Material(
-                              elevation: 4,
-                              borderRadius: BorderRadius.circular(18),
-                              child: Container(
-                                height: 75,
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 10,
-                                  horizontal: 22,
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(18),
-                                  color: const Color.fromARGB(255, 101, 101, 101),
-                                ),
-                                child: Icon(
-                                  Icons.fingerprint,
-                                  size: 34,
-                                  color: Colors.white,
-                                ),
+                            SizedBox(height: 8),
+                            Text(
+                              'Open \nAccount',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                height: 1.3,
+                                fontSize: 16,
+                                color: Colors.white,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 20),
-                        Text(
-                          "Register for Digital Banking",
-                          style: TextStyle(
-                            wordSpacing: -1,
-                            fontSize: 18,
-                            color: Colors.white,
-                            decoration: TextDecoration.underline,
-                            decorationColor: const Color.fromARGB(
-                              255,
-                              255,
-                              255,
-                              255,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        //DigiMall
+                        Column(
                           children: [
-                            //OpenAccount
-                             Column(
-                                children: [
-                                  Material(
-                                    elevation: 2,
-                                    borderRadius: BorderRadius.circular(18),
-                                    child: Container(
-                                      height: 75,
-                                      padding: const EdgeInsets.symmetric(
-                                        vertical: 10,
-                                        horizontal: 18,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(18),
-                                        color: const Color.fromARGB(
-                                          255,
-                                          101,
-                                          101,
-                                          101,
-                                        ),
-                                        border: Border.all(
-                                          color: const Color(0xFF33ADB8),
-                                          width: 2,
-                                        ),
-                                      ),
-                                      child: Icon(
-                                        Icons.account_balance_outlined,
-                                        size: 32,
-                                        color: Colors.white,
-                                      ),
-                                    ),
+                            Material(
+                              elevation: 2,
+                              borderRadius: BorderRadius.circular(18),
+                              child: Container(
+                                height: 75,
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 10,
+                                  horizontal: 18,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(18),
+                                  color: const Color.fromARGB(
+                                    255,
+                                    101,
+                                    101,
+                                    101,
                                   ),
-                                  SizedBox(height: 8),
-                                  Text(
-                                    'Open \nAccount',
-                                    textAlign: TextAlign.center,
-      
-                                    style: TextStyle(
-                                      height: 1.3,
-                                      fontSize: 16,
-                                      color: Colors.white,
-                                    ),
+                                  border: Border.all(
+                                    color: const Color(0xFF33ADB8),
+                                    width: 2,
                                   ),
-                                ],
-                              ),
-                            
-                            //DigiMall
-                            
-                             Column(
-                                children: [
-                                  Material(
-                                    elevation: 2,
-                                    borderRadius: BorderRadius.circular(18),
-                                    child: Container(
-                                      height: 75,
-                                      padding: const EdgeInsets.symmetric(
-                                        vertical: 10,
-                                        horizontal: 18,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(18),
-                                        color: const Color.fromARGB(
-                                          255,
-                                          101,
-                                          101,
-                                          101,
-                                        ),
-                                        border: Border.all(
-                                          color: const Color(0xFF33ADB8),
-                                          width: 2,
-                                        ),
-                                      ),
-                                      child: Icon(
-                                        Icons.shopping_cart,
-                                        size: 32,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(height: 8),
-                                  Text(
-                                    'Digital\nMall',
-                                    textAlign: TextAlign.center,
-      
-                                    style: TextStyle(
-                                      height: 1.3,
-                                      fontSize: 16,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            
-                            //CardDeals
-                            
-                             Column(
-                                children: [
-                                  Material(
-                                    elevation: 2,
-                                    borderRadius: BorderRadius.circular(18),
-                                    child: Container(
-                                      height: 75,
-                                      padding: const EdgeInsets.symmetric(
-                                        vertical: 10,
-                                        horizontal: 18,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(18),
-                                        color: const Color.fromARGB(
-                                          255,
-                                          101,
-                                          101,
-                                          101,
-                                        ),
-                                        border: Border.all(
-                                          color: const Color(0xFF33ADB8),
-                                          width: 2,
-                                        ),
-                                      ),
-                                      child: Icon(
-                                        Icons.credit_score,
-                                        size: 32,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(height: 8),
-                                  Text(
-                                    'Card\nDeals',
-                                    textAlign: TextAlign.center,
-      
-                                    style: TextStyle(
-                                      height: 1.3,
-                                      fontSize: 16,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ],
-                              ),
-      
-                            //WhatsAppBanking
-                            Container(
-                              child: Column(
-                                children: [
-                                  //DigiMall
-                                  Material(
-                                    elevation: 2,
-                                    borderRadius: BorderRadius.circular(18),
-                                    child: Container(
-                                      height: 75,
-                                      padding: const EdgeInsets.symmetric(
-                                        vertical: 10,
-                                        horizontal: 18,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(18),
-                                        color: const Color.fromARGB(
-                                          255,
-                                          101,
-                                          101,
-                                          101,
-                                        ),
-                                        border: Border.all(
-                                          color: const Color(0xFF33ADB8),
-                                          width: 2,
-                                        ),
-                                      ),
-                                      child: Icon(
-                                        Icons.call,
-                                        size: 32,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(height: 8),
-                                  Text(
-                                    'WhatsApp\nBanking',
-                                    textAlign: TextAlign.center,
-      
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      height: 1.3,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ],
+                                ),
+                                child: Icon(
+                                  Icons.shopping_cart,
+                                  size: 32,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
-                          ], //bottomButtons
+                            SizedBox(height: 8),
+                            Text(
+                              'Digital\nMall',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                height: 1.3,
+                                fontSize: 16,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
                         ),
-                        SizedBox(height: 12),
-                        Center(
-                          child: Icon(
-                            Icons.keyboard_double_arrow_up_sharp,
-                            size: 34,
-                            color: const Color.fromARGB(255, 6, 205, 223),
-                          ),
+                        //CardDeals
+                        Column(
+                          children: [
+                            Material(
+                              elevation: 2,
+                              borderRadius: BorderRadius.circular(18),
+                              child: Container(
+                                height: 75,
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 10,
+                                  horizontal: 18,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(18),
+                                  color: const Color.fromARGB(
+                                    255,
+                                    101,
+                                    101,
+                                    101,
+                                  ),
+                                  border: Border.all(
+                                    color: const Color(0xFF33ADB8),
+                                    width: 2,
+                                  ),
+                                ),
+                                child: Icon(
+                                  Icons.credit_score,
+                                  size: 32,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 8),
+                            Text(
+                              'Card\nDeals',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                height: 1.3,
+                                fontSize: 16,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        //WhatsAppBanking
+                        Column(
+                          children: [
+                            Material(
+                              elevation: 2,
+                              borderRadius: BorderRadius.circular(18),
+                              child: Container(
+                                height: 75,
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 10,
+                                  horizontal: 18,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(18),
+                                  color: const Color.fromARGB(
+                                    255,
+                                    101,
+                                    101,
+                                    101,
+                                  ),
+                                  border: Border.all(
+                                    color: const Color(0xFF33ADB8),
+                                    width: 2,
+                                  ),
+                                ),
+                                child: Icon(
+                                  Icons.call,
+                                  size: 32,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 8),
+                            Text(
+                              'WhatsApp\nBanking',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 16,
+                                height: 1.3,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
+                    SizedBox(height: 12),
+                    Center(
+                      child: Icon(
+                        Icons.keyboard_double_arrow_up_sharp,
+                        size: 34,
+                        color: const Color.fromARGB(255, 6, 205, 223),
+                      ),
+                    ),
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
+        ],
+      ),
     );
   }
 }

@@ -41,6 +41,7 @@ dependencies:
   font_awesome_flutter: ^10.12.0
   ionicons: ^0.2.2
   iconsax: ^0.0.8
+  video_player: ^2.8.2 
 
   
 dev_dependencies:
@@ -78,6 +79,7 @@ flutter:
     - assets/images/plus.png
     - assets/images/faysal_icon.png
     - assets/images/faysalbankfull.png
+    - assets/videos/video.mp4
 
     
     # - images/a_dot_ham.jpeg

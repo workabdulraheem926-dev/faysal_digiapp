@@ -3,19 +3,22 @@ import 'package:flutter/material.dart';
 class MyPayee extends StatelessWidget {
   const MyPayee({
     super.key,
+    this.onTap,
     required this.beniBank,
     required this.beniAccount,
     required this.image,
+
   });
 
   final String beniBank;
   final String beniAccount;
   final ImageProvider image; // This is the flexible part!
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onTap,
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
         backgroundColor: Colors.white,

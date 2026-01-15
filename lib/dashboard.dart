@@ -1,13 +1,5 @@
-import 'package:faysal_digiapp/SendMoney/Screen2.dart';
-import 'package:faysal_digiapp/SendMoney/Screen3.dart';
 import 'package:faysal_digiapp/SendMoney/mainScreen.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconsax/iconsax.dart';
-
-
-import 'package:ionicons/ionicons.dart';
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'widgets/custom_button.dart';
@@ -30,7 +22,7 @@ class Dashboard extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container( 
+                  Container(
                     width: 40,
                     height: 40,
                     decoration: BoxDecoration(
@@ -373,39 +365,23 @@ class Dashboard extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SendMoneyScreen()),
+                      MaterialPageRoute(
+                        builder: (context) => SendMoneyScreen(),
+                      ),
                     );
                   },
                 ),
-                Btn(
-                  text: "Top Up",
-                  onTap: () {},
-                  icon: Iconsax.mobile,
-                ),
-                Btn(text: "Pay Bills", 
-                  icon: Iconsax.wallet_2, 
-                  onTap: () {}),
+                Btn(text: "Top Up", onTap: () {}, icon: Iconsax.mobile),
+                Btn(text: "Pay Bills", icon: Iconsax.wallet_2, onTap: () {}),
               ],
             ),
             SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Btn(
-                  text: "Raast",
-                  icon: Iconsax.bank,
-                  onTap: () {},
-                ),
-                Btn(
-                  text: "Payments",
-                  icon: Iconsax.money_tick,
-                  onTap: () {},
-                ),
-                Btn(
-                  text: "Cards",
-                  icon: Iconsax.card,
-                  onTap: () {},
-                ),
+                Btn(text: "Raast", icon: Iconsax.bank, onTap: () {}),
+                Btn(text: "Payments", icon: Iconsax.money_tick, onTap: () {}),
+                Btn(text: "Cards", icon: Iconsax.card, onTap: () {}),
               ],
             ), //Modules
           ],

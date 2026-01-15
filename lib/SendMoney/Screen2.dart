@@ -1,3 +1,5 @@
+import 'package:faysal_digiapp/SendMoney/Screen3.dart';
+import 'package:faysal_digiapp/dashboard.dart';
 import 'package:faysal_digiapp/widgets/cluade_button_mine.dart';
 import 'package:faysal_digiapp/widgets/fav_beni_fromAccount.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -31,23 +33,32 @@ class SendMoneyS2 extends StatelessWidget {
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
             ),
             Expanded(child: SizedBox()),
-            Container( 
-              padding: EdgeInsets.all(6),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Dashboard()),
+                );
+              },
 
-             decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color.fromARGB(158, 139, 139, 139),
-                          blurRadius: .5,
+              child: Container(
+                padding: EdgeInsets.all(6),
 
-                          offset: Offset(0, 1),
-                        ),
-                      ],
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color.fromARGB(158, 139, 139, 139),
+                      blurRadius: .5,
 
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      shape: BoxShape.circle,
+                      offset: Offset(0, 1),
                     ),
-              child: Icon(Icons.home, color: const Color(0xFF33ADB8)),
+                  ],
+
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(Icons.home, color: const Color(0xFF33ADB8)),
+              ),
             ),
           ],
         ),
@@ -396,7 +407,12 @@ class SendMoneyS2 extends StatelessWidget {
                 Expanded(
                   child: CustomButton(
                     text: 'Next',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SendMoneyS3()),
+                      );
+                    },
                     borderWidth: 2,
                     fontSize: 20,
                     borderRadius: 12,
@@ -404,7 +420,6 @@ class SendMoneyS2 extends StatelessWidget {
                 ),
               ],
             ),
-
 
             SizedBox(height: 36),
           ],

@@ -1,3 +1,4 @@
+import 'package:faysal_digiapp/dashboard.dart';
 import 'package:faysal_digiapp/widgets/cluade_button_mine.dart';
 import 'package:faysal_digiapp/widgets/fav_beni_fromAccount.dart';
 import 'package:flutter_swipe_button/flutter_swipe_button.dart';
@@ -21,14 +22,23 @@ class SendMoneyS4 extends StatelessWidget {
         title: Row(
           children: [
             Expanded(child: SizedBox()),
-            Container(
-              padding: EdgeInsets.all(6),
+            GestureDetector(
 
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: const Color(0xFF33ADB8),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Dashboard()),
+                        );
+                      },
+              child: Container(
+                padding: EdgeInsets.all(6),
+              
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: const Color(0xFF33ADB8),
+                ),
+                child: Icon(Icons.home, color: Colors.white),
               ),
-              child: Icon(Icons.home, color: Colors.white),
             ),
           ],
         ),
